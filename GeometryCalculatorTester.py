@@ -8,7 +8,9 @@ class GeometryCalculatorTester(unittest.TestCase):
         self.alas = 5
         self.tinggi = 7
         self.sisi = 5
-        self.jari = 7
+        self.jari_jari = 2
+        # self.diameter = 2*self.jari_jari
+        
         self.panjang = 4
         self.lebar = 5
 
@@ -29,11 +31,13 @@ class GeometryCalculatorTester(unittest.TestCase):
         self.assertEqual(actualyResult,expectedResult)
 
     def test_luas_lingkaran(self):
+        geometryCalculator = GeometryCalculator()
         #act
-        actualyResult = GeometryCalculator.luas_lingkaran(self.jari)
+        actualyResult = geometryCalculator.luas_lingkaran(self.jari_jari)
 
+        diameter = geometryCalculator.diameter_lingkaran(self.jari_jari)
         #assert
-        expectedResult = 3.14 * self.jari * self.jari
+        expectedResult = (1/4) * 3.14159265359 * (diameter * diameter)
         self.assertEqual(actualyResult,expectedResult)
     def test_luas_persegi_panjang(self):
         #act
